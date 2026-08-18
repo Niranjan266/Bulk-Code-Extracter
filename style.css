@@ -1,0 +1,209 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 460px;
+  min-height: 580px;
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f8ff;
+  color: #102033;
+}
+
+.app { padding: 18px; }
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+h1 { margin: 0 0 5px; font-size: 20px; color: #0b4dab; }
+
+p { margin: 0; color: #526273; line-height: 1.45; }
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #dcecff;
+  color: #0b4dab;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #dbe8f8;
+  padding-bottom: 0;
+}
+
+.tab {
+  flex: 1;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+  padding: 9px 12px;
+  cursor: pointer;
+  background: transparent;
+  color: #526273;
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover { color: #0b4dab; }
+
+.tab.active {
+  color: #0b4dab;
+  border-bottom-color: #0b6de8;
+  background: #fff;
+}
+
+/* ── Panels ── */
+.panel { animation: fadeIn 0.15s ease; }
+.hidden { display: none; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ── Form elements ── */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hint { font-weight: 400; color: #66758a; }
+
+textarea, input[type="url"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #bad3f4;
+  border-radius: 10px;
+  outline: none;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+  background: #fff;
+  color: #102033;
+}
+
+textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+textarea:focus, input[type="url"]:focus, input[type="number"]:focus {
+  border-color: #0b6de8;
+  box-shadow: 0 0 0 3px rgba(11, 109, 232, 0.14);
+}
+
+/* ── Crawl-specific ── */
+.crawl-opts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 4px;
+}
+
+.crawl-opts label {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input[type="number"] {
+  width: 90px;
+  padding: 8px 10px;
+  border: 1px solid #bad3f4;
+  border-radius: 8px;
+  outline: none;
+  font-size: 13px;
+  background: #fff;
+  color: #102033;
+}
+
+/* ── Options checkboxes ── */
+.options { margin: 10px 0 14px; display: grid; gap: 7px; }
+
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+  color: #26394d;
+  font-size: 13px;
+}
+
+.check input { width: 15px; height: 15px; }
+
+/* ── Action buttons ── */
+.actions { display: flex; gap: 10px; }
+
+button {
+  flex: 1;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 12px;
+  cursor: pointer;
+  background: #0b6de8;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+button:hover { background: #084fa8; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+
+.secondary {
+  flex: 0.4;
+  background: #e8f0fb;
+  color: #0b4dab;
+}
+
+.secondary:hover { background: #d6e7fb; }
+
+/* ── Progress ── */
+.progress { margin-top: 16px; }
+
+.bar {
+  width: 100%;
+  height: 9px;
+  background: #dbe8f8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#barFill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: #0b6de8;
+  transition: width 0.2s ease;
+}
+
+#status { margin-top: 8px; font-size: 13px; color: #526273; }
+
+/* ── Log ── */
+#log {
+  max-height: 130px;
+  overflow: auto;
+  margin: 10px 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: #0f1f35;
+  color: #d8ecff;
+  font-size: 12px;
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+}
+
+.note { margin-top: 10px; font-size: 12px; color: #66758a; }

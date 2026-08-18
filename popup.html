@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Source Extractor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="header">
+      <div>
+        <h1>Bulk Source Extractor</h1>
+        <p>Download HTML &amp; CSS from any pages.</p>
+      </div>
+      <span class="badge">HTML + CSS</span>
+    </section>
+
+    <!-- Mode tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="bulk">Bulk URLs</button>
+      <button class="tab" data-tab="crawl">Site Crawl</button>
+    </div>
+
+    <!-- ── BULK URLs PANEL ── -->
+    <div id="panel-bulk" class="panel">
+      <label for="urls">URLs <span class="hint">(one per line)</span></label>
+      <textarea id="urls" placeholder="https://example.com/&#10;https://example.com/about&#10;https://example.com/contact"></textarea>
+
+      <div class="options">
+        <label class="check">
+          <input type="checkbox" id="sameOriginCss" checked />
+          Only collect CSS from the same domain
+        </label>
+        </div>
+
+      <div class="actions">
+        <button id="extractBtn">Extract &amp; Download ZIP</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+    </div>
+
+    <!-- ── SITE CRAWL PANEL ── -->
+    <div id="panel-crawl" class="panel hidden">
+      <label for="crawlUrl">Starting URL</label>
+      <input type="url" id="crawlUrl" placeholder="https://example.com" />
+
+      <div class="crawl-opts">
+        <label for="maxPages">Max pages to crawl</label>
+        <input type="number" id="maxPages" value="50" min="1" max="500" />
+      </div>
+
+      <div class="options">
+        <label class="check">
+          <input type="checkbox" id="crawlSameOriginCss" checked />
+          Only collect CSS from the same domain
+        </label>
+        <label class="check">
+          <input type="checkbox" id="stayOnDomain" checked />
+          Stay on the same domain (no external links)
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="crawlBtn">Crawl &amp; Download ZIP</button>
+        <button id="crawlClearBtn" class="secondary">Clear</button>
+      </div>
+    </div>
+
+    <!-- Shared progress + log -->
+    <div class="progress">
+      <div class="bar"><span id="barFill"></span></div>
+      <p id="status">Ready.</p>
+    </div>
+
+    <pre id="log"></pre>
+
+    <p class="note">Works best on public pages. JavaScript-rendered content may not appear in raw HTML.</p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

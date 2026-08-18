@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Bulk Page Source Extractor",
+  "version": "2.0.0",
+  "description": "Extract HTML and linked CSS files from bulk URLs and download them as a ZIP.",
+  "permissions": ["downloads"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Bulk Source Extractor",
+    "default_popup": "popup.html"
+  }
+}
